@@ -21,7 +21,7 @@ const SignIn = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post(`http://localhost:1000/api/v1/signin`, Inputs);
+        const response = await axios.post(`${process.env.API_BASE_URL}/v1/signin`, Inputs);
 
         if (response.data.message) {
             // Handle error messages, such as incorrect password or sign-up required
