@@ -16,7 +16,7 @@ const Todo = () => {
 
   const del = async (Cardid) => {
     if (id) {
-      await axios.delete(`${process.env.API_BASE_URL}/v2/deleteTask/${Cardid}`, { data: { id: id }, }).then(() => {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/v2/deleteTask/${Cardid}`, { data: { id: id }, }).then(() => {
         toast.success("Your task is deleted");
       });
     }
@@ -36,7 +36,7 @@ const Todo = () => {
       toast.error("Please Enter Body & Title");
     } else {
       if (id) {
-        await axios.post(`${process.env.API_BASE_URL}/v2/addTask`, { title: Inputs.title, body: Inputs.body, id: id }).then((response) => { console.log(response) });
+        await axios.post(`${process.env.REACT_APP_API_BASE_URL}/v2/addTask`, { title: Inputs.title, body: Inputs.body, id: id }).then((response) => { console.log(response) });
 
         setInputs({ title: "", body: "" });
         toast.success("Your task is added");
@@ -58,7 +58,7 @@ const Todo = () => {
     if (id) {
       const fetch = async () => {
         
-        await axios.get(`${process.env.API_BASE_URL}/v2/getTasks/${id}`).then((response) => {
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/v2/getTasks/${id}`).then((response) => {
           setArray(response.data.list);
         });
       };

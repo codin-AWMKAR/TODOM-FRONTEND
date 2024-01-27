@@ -18,10 +18,11 @@ const SignIn = () => {
     const { name, value } = e.target;
     setInputs({ ...Inputs, [name]: value });
   };
+  console.log(process.env.REACT_APP_API_BASE_URL);
   const submit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post(`${process.env.API_BASE_URL}/v1/signin`, Inputs);
+        const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/v1/signin`, Inputs);
 
         if (response.data.message) {
             // Handle error messages, such as incorrect password or sign-up required

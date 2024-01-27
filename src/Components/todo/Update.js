@@ -22,7 +22,7 @@ const Update = ({ display, update }) => {
   };
 
   const submit = async () => {
-    await axios.put(`${process.env.API_BASE_URL}/v2/updateTask/${update._id}`, Inputs).then((response) => {
+    await axios.put(`${process.env.REACT_APP_API_BASE_URL}/v2/updateTask/${update._id}`, Inputs).then((response) => {
       toast.success('Your Task Is Updated');
     });
 
